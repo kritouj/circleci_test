@@ -6,6 +6,13 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
+  test:
+    docker: 
+      - image: circleci/golang:1.12
+    steps:
+      - checkout
+      - run: echo "this is part of the test"
+      - run: sleep 3
 workflows:
   version: 2.1
   build_and_test:
